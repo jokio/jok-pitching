@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Game.
+        ///   Looks up a localized string similar to Start Speech.
         /// </summary>
         public static string A001 {
             get {
@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Play Again.
         /// </summary>
         public static string A004 {
             get {

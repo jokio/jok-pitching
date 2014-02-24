@@ -4,6 +4,8 @@ var Game = {
 
     tomatoFireHandler: undefined,
 
+    //bgAudio: undefined,
+
     init: function () {
 
         $(document).on('click', '.tomato', function (e) {
@@ -13,29 +15,34 @@ var Game = {
         $(document).on('keydown', this.UIKeyDown);
         $(document).on('click', '#Game', this.UIFire);
         $(document).on('click', '#StartGame', this.UIStartGame);
+        $(document).on('click', '#PlayAgain', this.UIPlayAgain);
+        $(document).on('click', '#Game .volume', this.UIToggleMusic);
 
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', this.deviceMotionHandler, false);
         }
+
+        //this.bgAudio = new Audio('/Audio/Lights.mp3');
+        //this.bgAudio.volume = 40;
     },
 
 
     UIKeyDown: function (e) {
 
-        var left = $('.user_avatar').position().left
+        var left = $('#Game .user_avatar').position().left
 
         if (e.keyCode == 37) { // left
             if (left < 140)
                 return;
 
-            $('.user_avatar').css('left', left - 10);
+            $('#Game .user_avatar').css('left', left - 10);
         }
 
         if (e.keyCode == 39) { // right
             if (left > 650)
                 return;
 
-            $('.user_avatar').css('left', left + 10);
+            $('#Game .user_avatar').css('left', left + 10);
         }
     },
 
@@ -44,30 +51,32 @@ var Game = {
     },
 
     UIStartGame: function () {
+        $('#Menu').hide();
 
-        $('.starting').hide();
-
-        Game.tomatoFireHandler = setInterval(function () {
-            var x = ($('#Game').width() - 200) * Math.random() + 100;
-            var y = ($('#Game').height() - 600) * Math.random() + 300;
-
-            Game.fireTomato(x, y);
-
-        }, 500);
+        Game.startGame();
     },
 
+    UIPlayAgain: function () {
+        $('#Game .balance span').html(100);
+        $('#Menu').hide();
+
+        Game.startGame();
+    },
+
+    UIToggleMusic: function () {
+        Game.toggleMusicVolume();
+    },
 
     fireTomato: function (x, y) {
 
-        var count = $('.balance span').html();
+        var count = $('#Game .balance span').html();
         if (!count || count <= 0) {
-            $('.result').html(ML.A002);
-            $('.result').show();
+            this.finishGame(true);
             return;
         }
 
         count--;
-        $('.balance span').html(count);
+        $('#Game .balance span').html(count);
 
         var tomato = $('<img class="tomato" src="/Images/tomato.png" />');
         tomato.css('left', x);
@@ -94,18 +103,17 @@ var Game = {
 
             if (_this.isShooted(x, y) || _this.isShooted(x + 10, y) || _this.isShooted(x, y + 10) || _this.isShooted(x + 10, y + 10)) {
 
-                var hp = $('.user_avatar').attr('data-hp');
+                _this.fxSplashPlay();
+
+                var hp = $('#Game .user_avatar').attr('data-hp');
                 if (hp > 1) {
                     hp--;
-                    $('.user_avatar').attr('src', 'Images/user_avatar_hp_' + hp + '.png');
-                    $('.user_avatar').attr('data-hp', hp);
+                    $('#Game .user_avatar').attr('src', 'Images/user_avatar_hp_' + hp + '.png');
+                    $('#Game .user_avatar').attr('data-hp', hp);
                 } else {
                     clearInterval(_this.tomatoFireHandler);
-                    $('.result').html(ML.A003);
-                    $('.result').show();
+                    _this.finishGame(false);
                 }
-
-                _this.fxSplashPlay();
             }
             else {
                 _this.fxMissPlay();
@@ -117,20 +125,34 @@ var Game = {
         });
     },
 
+    toggleMusicVolume: function () {
+        if (!this.bgAudio) return;
+
+        this.bgAudio.volume = (this.bgAudio.volume == 0) ? 40 : 0;
+
+        if (this.bgAudio.volume == 0) {
+            $('#Game .volume .glyphicon-volume-up').hide();
+            $('#Game .volume .glyphicon-volume-off').show();
+        } else {
+            $('#Game .volume .glyphicon-volume-up').show();
+            $('#Game .volume .glyphicon-volume-off').hide();
+        }
+    },
+
     deviceMotionHandler: function (eventData) {
 
-        var left = $('.user_avatar').position().left;
+        var left = $('#Game .user_avatar').position().left;
 
         if (left + eventData.rotationRate.alpha < 140 || left + eventData.rotationRate.alpha > 650) return;
 
-        $('.user_avatar').css('left', left + eventData.rotationRate.alpha);
+        $('#Game .user_avatar').css('left', left + eventData.rotationRate.alpha);
     },
 
     isShooted: function (x, y) {
 
-        var avatarPosition = $('.user_avatar').position();
-        var avatarWidth = $('.user_avatar').width();
-        var avatarHeight = $('.user_avatar').height();
+        var avatarPosition = $('#Game .user_avatar').position();
+        var avatarWidth = $('#Game .user_avatar').width();
+        var avatarHeight = $('#Game .user_avatar').height();
 
         if ((avatarPosition.left < x && x < (avatarPosition.left + avatarWidth)) &&
             (avatarPosition.top < y && y < (avatarPosition.top + avatarHeight)))
@@ -138,6 +160,35 @@ var Game = {
 
         return false;
     },
+
+    startGame: function () {
+
+        $('#Game .user_avatar').attr('data-hp', '5');
+        $('#Game .user_avatar').attr('src', 'Images/user_avatar_hp_5.png');
+
+        this.tomatoFireHandler = setInterval(function () {
+            var x = ($('#Game').width() - 200) * Math.random() + 100;
+            var y = ($('#Game').height() - 600) * Math.random() + 300;
+
+            Game.fireTomato(x, y);
+
+        }, 500);
+
+        //this.bgAudio.play();
+    },
+
+    finishGame: function (isWinner) {
+        $('#Menu .finish .results').html(isWinner ? ML.A002 : ML.A003);
+        $('#Menu .finish').show();
+        $('#Menu .start').hide();
+        $('#Menu').show();
+
+        //if (bgAudio) {
+        //    bgAudio.stop();
+        //    bgAudio.load('http://stop.me');
+        //}
+    },
+
 
     fxSplashPlay: function () {
         var audio = new Audio('/Audio/splash.wav');

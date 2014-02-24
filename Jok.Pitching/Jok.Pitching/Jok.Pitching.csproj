@@ -126,6 +126,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Audio\Lights.mp3" />
     <Content Include="Audio\miss4.mp3" />
     <Content Include="Audio\miss3.mp3" />
     <Content Include="Audio\miss1.mp3" />
