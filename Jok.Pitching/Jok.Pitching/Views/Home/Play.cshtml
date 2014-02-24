@@ -1,4 +1,5 @@
 ﻿@{ Layout = null; }
+@using R = Resources.Play
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,12 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
     <title>Game Jam - Fun</title>
     <meta property="og:image" content="http://gamejamfun.jok.io/Images/user_avatar_hp_4.png">
+    <script>
+        var ML = {
+            A002: '@R.A002',
+            A003: '@R.A003',
+        }
+    </script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/js")
 </head>
@@ -19,12 +26,9 @@
         <img class="tribuna" src="~/Images/gift-package.png" />
         <div class="starting">
             <img src="~/Images/gamejam.png" /><br />
-            <button id="StartGame" class="btn btn-default">მოხსენების დაწყება</button>
+            <button id="StartGame" class="btn btn-default">@R.A001</button>
         </div>
-        <div class="result">გილოცავთ, თქვენ გაიმარჯვეთ!</div>
-    </div>
-    <div>
-
+        <div class="result"></div>
     </div>
     <script src="http://debug.jok.io/target/target-script-min.js#anonymous"></script>
 </body>

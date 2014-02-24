@@ -61,7 +61,7 @@ var Game = {
 
         var count = $('.balance span').html();
         if (!count || count <= 0) {
-            $('.result').html('გილოცავთ, თქვენ გაიმარჯვეთ!');
+            $('.result').html(ML.A002);
             $('.result').show();
             return;
         }
@@ -101,7 +101,7 @@ var Game = {
                     $('.user_avatar').attr('data-hp', hp);
                 } else {
                     clearInterval(_this.tomatoFireHandler);
-                    $('.result').html('თქვენ წააგეთ!');
+                    $('.result').html(ML.A003);
                     $('.result').show();
                 }
 
