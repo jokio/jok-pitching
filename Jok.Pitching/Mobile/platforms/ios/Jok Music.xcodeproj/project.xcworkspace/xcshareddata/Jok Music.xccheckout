@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6907B26D-C6AD-46DB-A549-5FE089BB67A6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Jok Music</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</key>
+		<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.FM.MobileApp</string>
+		<key>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</key>
+		<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.Pool.MobileApp</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Jok Music.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</key>
+		<string>../../../..</string>
+		<key>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</key>
+		<string>../../../../../../../../Volumes/BOOTCAMP/jokio.visualstudio.com/Jok.Pool.MobileApp</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.FM.MobileApp</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Jok.FM</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Jok.Pool</string>
+		</dict>
+	</array>
+</dict>
+</plist>

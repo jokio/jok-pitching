@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.phonegap.plugins.jokutils"
+        version="0.1.0">
+
+    <name>Jok Utils</name>
+    
+    <description>
+        Utility functions for Game Applications.
+        Play audio effect without any delay, Change screen orientation, etc.
+    </description>
+    
+    <license>MIT</license>
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+             <feature name="JokUtils">
+                 <param name="ios-package" value="CDVJokUtils" /> 
+             </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVJokUtils.h" />
+
+        <source-file src="src/ios/CDVJokUtils.m" />
+        
+    </platform>
+
+</plugin>
