@@ -23,7 +23,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 		
 		<script>
-            var ROOT_LOCATION = 'http://jok.io';
+            var ROOT_LOCATION = 'http://pitching.jok.io';
             
             function onLoad() {
                 document.addEventListener('deviceready', onDeviceReady, false);
@@ -35,7 +35,7 @@
                 var navigateLocation = document.location.hash.replace('#', '');
                 
                 if (!navigateLocation) {
-                    navigateLocation = '/mobile/fm?deviceid=' + device.uuid;
+                    navigateLocation = '/play?deviceid=' + device.uuid;
                 }
                 
                 navigate(navigateLocation);
