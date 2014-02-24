@@ -11,7 +11,7 @@ namespace Jok.Pitching
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
-                        "~/Scripts/jquery.transform2d.js"));
+                        "~/Scripts/Game.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
