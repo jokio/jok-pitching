@@ -1,0 +1,171 @@
+﻿@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <title>Game Jam - Fun</title>
+    <meta property="og:image" content="http://gamejamfun.jok.io/Images/user_avatar_hp_4.png">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/js")
+</head>
+<body>
+    <div id="wrapper">
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=528732163816152";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="background">
+            <img class="user_avatar" data-hp="5" src="~/Images/user_avatar_hp_5.png" />
+            <div class="balance">
+                <img class="tomato" src="~/Images/tomato.png" style="position: relative;" />
+                <span>100</span>
+            </div>
+            <img class="tribuna" src="~/Images/gift-package.png" />
+            <div class="fb_container">
+                <div class="fb-share-button" data-href="http://gamejamfun.jok.io/Play?wtf2" data-type="button_count"></div>
+            </div>
+            <div class="starting">
+                <img src="~/Images/gamejam.png" /><br/>
+                <button id="StartGame" class="btn btn-default">მოხსენების დაწყება</button>
+            </div>
+            <div class="result">გილოცავთ, თქვენ გაიმარჯვეთ!</div>
+        </div>
+    </div>
+    <div id="warning-message">
+        გთხოვთ ამოატრიალოთ მობილური მოწყობილობა Landscape რეჟიმში :)
+    </div>
+    <script>
+        var tomatoFireHandler;
+
+        $(document).on('click', '.tomato', function (e) {
+            return false;
+        });
+
+        $(document).on('keydown', function (e) {
+
+            var left = $('.user_avatar').position().left
+
+            if (e.keyCode == 37) { // left
+                if (left < 140)
+                    return;
+
+                $('.user_avatar').css('left', left - 10);
+            }
+
+            if (e.keyCode == 39) { // right
+                if (left > 650)
+                    return;
+
+                $('.user_avatar').css('left', left + 10);
+            }
+        });
+
+        $(document).on('click', '.background', function (e) {
+            //throwTomato(e.offsetX, e.offsetY);
+        });
+
+        $(document).on('click', '#StartGame', function () {
+
+            $('.starting').hide();
+
+            tomatoFireHandler = setInterval(function () {
+                var x = ($('.background').width() - 200) * Math.random() + 100;
+                var y = ($('.background').height() - 600) * Math.random() + 300;
+
+                throwTomato(x, y);
+
+            }, 500);
+        });
+
+        function throwTomato(x, y) {
+
+            var count = $('.balance span').html();
+            if (!count || count <= 0) {
+                $('.result').html('გილოცავთ, თქვენ გაიმარჯვეთ!');
+                $('.result').show();
+                return;
+            }
+
+            count--;
+            $('.balance span').html(count);
+
+            var tomato = $('<img class="tomato" src="/Images/tomato.png" />');
+            tomato.css('left', x);
+            $('.background').append(tomato);
+
+            tomato.css('top', y + 30);
+
+            var originalHeight = tomato.height();
+            var originalWidth = tomato.width();
+
+            tomato.height(originalHeight * 2);
+            tomato.width(originalWidth * 2);
+
+            tomato.animate({ top: y, height: originalHeight, width: originalWidth }, 1000, 'linear', function () {
+                tomato.css('margin-left', '-50px');
+                tomato.css('margin-top', '-50px');
+                tomato.attr('src', '/Images/tomato_splashed.png');
+                tomato.css('height', 'auto');
+                tomato.css('width', 'auto');
+                tomato.addClass('tomato_splashed');
+
+                if (isShooted(x, y) || isShooted(x + 10, y) || isShooted(x, y + 10) || isShooted(x + 10, y + 10)) {
+
+                    var hp = $('.user_avatar').attr('data-hp');
+                    if (hp > 1) {
+                        hp--;
+                        $('.user_avatar').attr('src', 'Images/user_avatar_hp_' + hp + '.png');
+                        $('.user_avatar').attr('data-hp', hp);
+                    } else {
+                        clearInterval(tomatoFireHandler);
+                        $('.result').html('თქვენ წააგეთ!');
+                        $('.result').show();
+                    }
+                }
+
+                tomato.fadeOut(5000, function () {
+                    tomato.remove();
+                });
+            });
+        }
+
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', deviceMotionHandler, false);
+        }
+
+        function deviceMotionHandler(eventData) {
+
+            var left = $('.user_avatar').position().left;
+
+            if (left + eventData.rotationRate.alpha < 140 || left + eventData.rotationRate.alpha > 650) return;
+
+            $('.user_avatar').css('left', left + eventData.rotationRate.alpha);
+        }
+
+
+        function isShooted(x, y) {
+
+            var avatarPosition = $('.user_avatar').position();
+            var avatarWidth = $('.user_avatar').width();
+            var avatarHeight = $('.user_avatar').height();
+
+            if ((avatarPosition.left < x && x < (avatarPosition.left + avatarWidth)) &&
+                (avatarPosition.top < y && y < (avatarPosition.top + avatarHeight)))
+                return true;
+
+            return false;
+        }
+
+
+
+    </script>
+    <script src="http://debug.jok.io/target/target-script-min.js#anonymous"></script>
+</body>
+</html>
