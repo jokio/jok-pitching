@@ -3,7 +3,7 @@
     background: black;
 }
 
-.background {
+#Game {
     background: black url('/Images/background.jpg') center center no-repeat;
     background-size: 100%;
     width: 900px;
@@ -15,14 +15,14 @@
     overflow: hidden;
 }
 
-.tribuna {
+#Game .tribuna {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 100;
 }
 
-.starting {
+#Game .starting {
     position: absolute;
     top: 200px;
     z-index: 2000;
@@ -30,7 +30,7 @@
     text-align: center;
 }
 
-.user_avatar {
+#Game .user_avatar {
     width: 100px;
     box-shadow: 0 0 3px black;
     position: absolute;
@@ -41,13 +41,13 @@
     -webkit-animation: user_move_anim 2s linear infinite;
 }
 
-.balance {
+#Game .balance {
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
-.balance span {
+#Game .balance span {
     color: rgb(223, 3, 3);
     font-weight: bold;
     font-size: 20px;
@@ -55,13 +55,13 @@
     text-shadow: 0 0 23px white;
 }
 
-.tomato {
+#Game .tomato {
     position: absolute;
     -webkit-animation: spin .5s linear infinite, scale_anim 1 linear;
     z-index: 200;
 }
 
-.result {
+#Game .result {
     color: white;
     text-shadow: 0 0 4px white;
     font-size: 30px;
@@ -73,7 +73,7 @@
     display: none;
 }
 
-.tomato_splashed {
+#Game .tomato_splashed {
     -moz-animation-play-state: paused;
     -webkit-animation-play-state: paused;
     z-index: 0;
@@ -117,14 +117,6 @@
     100% {
         -webkit-transform: scale(1,1);
     }
-}
-
-
-.fb_container {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    z-index: 1000;
 }
 
 

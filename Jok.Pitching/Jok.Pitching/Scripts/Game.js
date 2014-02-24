@@ -11,7 +11,7 @@ var Game = {
         });
 
         $(document).on('keydown', this.UIKeyDown);
-        $(document).on('click', '.background', this.UIFire);
+        $(document).on('click', '#Game', this.UIFire);
         $(document).on('click', '#StartGame', this.UIStartGame);
 
         if (window.DeviceMotionEvent) {
@@ -48,8 +48,8 @@ var Game = {
         $('.starting').hide();
 
         Game.tomatoFireHandler = setInterval(function () {
-            var x = ($('.background').width() - 200) * Math.random() + 100;
-            var y = ($('.background').height() - 600) * Math.random() + 300;
+            var x = ($('#Game').width() - 200) * Math.random() + 100;
+            var y = ($('#Game').height() - 600) * Math.random() + 300;
 
             Game.fireTomato(x, y);
 
@@ -71,7 +71,7 @@ var Game = {
 
         var tomato = $('<img class="tomato" src="/Images/tomato.png" />');
         tomato.css('left', x);
-        $('.background').append(tomato);
+        $('#Game').append(tomato);
 
         tomato.css('top', y + 30);
 
@@ -145,7 +145,11 @@ var Game = {
     },
 
     fxMissPlay: function () {
-        var audio = new Audio('/Audio/miss.wav');
+
+        var url = (Math.floor((Math.random() * 10)) == 0) ? '/Audio/miss2.mp3' : '/Audio/miss2.mp3';
+
+        var audio = new Audio(url);
+        audio.volume = .4;
         audio.play();
     }
 }
