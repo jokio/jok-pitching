@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -53,8 +54,8 @@
 		C5BE10A6182572FD00826BD1 /* Default-Landscape2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C5BE10A5182572FD00826BD1 /* Default-Landscape2x~ipad.png */; };
 		C5BE10A81825740400826BD1 /* Default-Portrait2x~ipad2.png in Resources */ = {isa = PBXBuildFile; fileRef = C5BE10A71825740400826BD1 /* Default-Portrait2x~ipad2.png */; };
 		C5BE10AA1825745700826BD1 /* Default-Landscape2x~ipad2.png in Resources */ = {isa = PBXBuildFile; fileRef = C5BE10A91825745700826BD1 /* Default-Landscape2x~ipad2.png */; };
-		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		D15EE93E8FE34E699864730A /* CDVJokUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8599F883F9AC4F858F6E6960 /* CDVJokUtils.m */; };
+		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +101,10 @@
 		728DA7D292D44401B52FD9E6 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		73F0381ED58A4FF493D14A38 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.core.vibration/CDVVibration.m; sourceTree = "<group>"; };
 		759B9E5EE4E74C50B84140DF /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
+		8599F883F9AC4F858F6E6960 /* CDVJokUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJokUtils.m; path = com.phonegap.plugins.jokutils/CDVJokUtils.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Jok Music-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Jok Music-Info.plist"; path = "../Jok Music-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		8DC8C15A6E5840599E93F2EA /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A2104CC02F42489EADA33EA1 /* CDVJokUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJokUtils.h; path = com.phonegap.plugins.jokutils/CDVJokUtils.h; sourceTree = "<group>"; };
 		B41A1A7A1A054DF9B6D4AA70 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = org.apache.cordova.core.dialogs/CDVNotification.m; sourceTree = "<group>"; };
 		C257C222A9004D1FAA56053B /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = org.apache.cordova.core.vibration/CDVVibration.h; sourceTree = "<group>"; };
 		C521D56C18254E68009063AD /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
@@ -134,8 +137,6 @@
 		CF35B2F135C14BA28E532966 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.core.device/CDVDevice.h; sourceTree = "<group>"; };
 		D01065639E6246CA990A7CF9 /* CDVSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSound.h; path = org.apache.cordova.core.AudioHandler/CDVSound.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Jok Music/config.xml"; sourceTree = "<group>"; };
-		8599F883F9AC4F858F6E6960 /* CDVJokUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVJokUtils.m"; path = "com.phonegap.plugins.jokutils/CDVJokUtils.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		A2104CC02F42489EADA33EA1 /* CDVJokUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVJokUtils.h"; path = "com.phonegap.plugins.jokutils/CDVJokUtils.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +362,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = T37ZNSJLEK;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Jok Music" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -531,6 +537,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -555,6 +563,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Jok Music";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -566,6 +575,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Jok Music/Jok Music-Prefix.pch";
@@ -588,6 +599,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Jok Music";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -5,48 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6907B26D-C6AD-46DB-A549-5FE089BB67A6</string>
+	<string>8346977C-466C-400F-A867-6DA746C2E0DD</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Jok Music</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</key>
-		<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.FM.MobileApp</string>
-		<key>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</key>
-		<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.Pool.MobileApp</string>
+		<key>2E6D6261-0B44-4817-8C9E-111791D95C12</key>
+		<string>https://github.com/jokio/jok-pitching.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/Jok Music.xcodeproj/project.xcworkspace</string>
+	<string>Mobile/platforms/ios/Jok Music.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</key>
-		<string>../../../..</string>
-		<key>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</key>
-		<string>../../../../../../../../Volumes/BOOTCAMP/jokio.visualstudio.com/Jok.Pool.MobileApp</string>
+		<key>2E6D6261-0B44-4817-8C9E-111791D95C12</key>
+		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://jokio.visualstudio.com/DefaultCollection/_git/Jok.FM.MobileApp</string>
+	<string>https://github.com/jokio/jok-pitching.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</string>
+	<string>2E6D6261-0B44-4817-8C9E-111791D95C12</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C6B0FF7F-0974-4448-B320-B4BB56CF51EF</string>
+			<string>2E6D6261-0B44-4817-8C9E-111791D95C12</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Jok.FM</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EFF6DB58-D2F2-43E5-99A8-0DABE5D4EF95</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Jok.Pool</string>
+			<string>jok-pitching</string>
 		</dict>
 	</array>
 </dict>
