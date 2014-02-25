@@ -36,3 +36,40 @@
 ### 0.2.3 (Oct 9, 2013)
 * [CB-4915] Incremented plugin version on dev branch.
 * [CB-4926] Fixes inappbrowser plugin loading for windows8
+
+### 0.2.4 (Oct 28, 2013)
+* CB-5128: added repo + issue tag to plugin.xml for inappbrowser plugin
+* CB-4995 Fix crash when WebView is quickly opened then closed.
+* CB-4930 - iOS - InAppBrowser should take into account the status bar
+* [CB-5010] Incremented plugin version on dev branch.
+* [CB-5010] Updated version and RELEASENOTES.md for release 0.2.3
+* CB-4858 - Run IAB methods on the UI thread.
+* CB-4858 Convert relative URLs to absolute URLs in JS
+* CB-3747 Fix back button having different dismiss logic from the close button.
+* CB-5021 Expose closeDialog() as a public function and make it safe to call multiple times.
+* CB-5021 Make it safe to call close() multiple times
+
+### 0.2.5 (Dec 4, 2013)
+* Remove merge conflict tag
+* [CB-4724] fixed UriFormatException
+* add ubuntu platform
+* CB-3420 WP feature hidden=yes implemented
+* Added amazon-fireos platform. Change to use amazon-fireos as the platform if user agent string contains 'cordova-amazon-fireos'
+
+### 0.3.0 (Jan 02, 2014)
+* CB-5592 Android: Add MIME type to Intent when opening file:/// URLs
+* CB-5594 iOS: Add disallowoverscroll option.
+* CB-5658 Add doc/index.md for InAppBrowser plugin
+* CB-5595 Add toolbarposition=top option.
+* Apply CB-5193 to InAppBrowser (Fix DB quota exception)
+* CB-5593 iOS: Make InAppBrowser localizable
+* CB-5591 Change window.escape to encodeURIComponent
+
+### 0.3.1 (Feb 05, 2014)
+* CB-5756: Android: Use WebView.evaluateJavascript for script injection on Android 4.4+
+* Didn't test on ICS or lower, getDrawable isn't supported until Jellybean
+* add ubuntu platform
+* Adding drawables to the inAppBrowser.  This doesn't look quite right, but it's a HUGE improvement over the previous settings
+* CB-5756: Android: Use WebView.evaluateJavascript for script injection on Android 4.4+
+* Remove alive from InAppBrowser.js since it didn't catch the case where the browser is closed by the user.
+* CB-5733 Fix IAB.close() not working if called before show() animation is done

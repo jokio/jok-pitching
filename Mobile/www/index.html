@@ -30,12 +30,12 @@
             }
                         
             function onDeviceReady() {
-                console.log('Device is ready!')
+                console.log('Device is ready!');
                 
                 var navigateLocation = document.location.hash.replace('#', '');
                 
                 if (!navigateLocation) {
-                    navigateLocation = '/mobile/fm?deviceid=' + device.uuid;
+                    navigateLocation = '/mobile/GameLobby?game=pitching&deviceid=' + device.uuid;
                 }
                 
                 navigate(navigateLocation);

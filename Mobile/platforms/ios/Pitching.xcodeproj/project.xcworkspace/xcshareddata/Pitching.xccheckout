@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D65CBDA9-71BD-4A84-BAA9-B743647A2017</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pitching</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3971AD25-A0E3-4DFA-B63E-716815045526</key>
+		<string>https://github.com/jokio/jok-pitching.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Mobile/platforms/ios/Pitching.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3971AD25-A0E3-4DFA-B63E-716815045526</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jokio/jok-pitching.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3971AD25-A0E3-4DFA-B63E-716815045526</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3971AD25-A0E3-4DFA-B63E-716815045526</string>
+			<key>IDESourceControlWCCName</key>
+			<string>jok-pitching</string>
+		</dict>
+	</array>
+</dict>
+</plist>

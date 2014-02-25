@@ -23,19 +23,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 		
 		<script>
-            var ROOT_LOCATION = 'http://pitching.jok.io';
+            var ROOT_LOCATION = 'http://jok.io';
             
             function onLoad() {
                 document.addEventListener('deviceready', onDeviceReady, false);
             }
                         
             function onDeviceReady() {
-                console.log('Device is ready!')
+                console.log('Device is ready!');
                 
                 var navigateLocation = document.location.hash.replace('#', '');
                 
                 if (!navigateLocation) {
-                    navigateLocation = '/play?deviceid=' + device.uuid;
+                    navigateLocation = '/mobile/GameLobby?game=pitching&deviceid=' + device.uuid;
                 }
                 
                 navigate(navigateLocation);

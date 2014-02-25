@@ -8,6 +8,7 @@
 
 #import "CDVJokUtils.h"
 #import "MediaPlayer/MediaPlayer.h"
+#import "AVFoundation/AVPlayer.h"
 
 @implementation CDVJokUtils
 
@@ -46,14 +47,26 @@
     }
 }
 
+-(void)playAudioStream:(CDVInvokedUrlCommand*)command
+{
+    AVPlayer* player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:[command.arguments objectAtIndex:0]]];
+    
+    self.player = player;
+    
+    [self.player play];
+}
+
+-(void)stopAudioStream:(CDVInvokedUrlCommand*)command
+{
+    [self.player pause];
+    self.player = nil;
+}
+
 -(void)setPlayingAudioTitle:(CDVInvokedUrlCommand*)command
 {
     NSMutableDictionary *nowPlayingInfo = [[NSMutableDictionary alloc] init];
     [nowPlayingInfo setObject:[command.arguments objectAtIndex:0] forKey:MPMediaItemPropertyArtist];
     [nowPlayingInfo setObject:[command.arguments objectAtIndex:1] forKey:MPMediaItemPropertyTitle];
-    
-    [nowPlayingInfo setObject:[NSNumber numberWithDouble:0] forKey:MPNowPlayingInfoPropertyPlaybackRate];
-    [nowPlayingInfo setObject:[NSNumber numberWithDouble:0] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nowPlayingInfo;
 }
 
