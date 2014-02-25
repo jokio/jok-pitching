@@ -3,6 +3,15 @@
     background: black;
 }
 
+img {
+    border: 0px;
+}
+
+#Container {
+    z-index: 200;
+    position: relative;
+}
+
 #Game {
     background: black url('/Images/background.jpg') center center no-repeat;
     background-size: 100%;
@@ -12,6 +21,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    top: 0px;
     overflow: hidden;
 }
 
@@ -44,7 +54,7 @@
 #Game .balance {
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 50px;
 }
 
 #Game .balance span {
@@ -79,64 +89,6 @@
 }
 
 
-@-moz-keyframes spin {
-    0% {
-        -moz-transform: rotate(0deg);
-    }
-
-    100% {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes scale_anim {
-    0% {
-        -moz-transform: scale(3);
-    }
-
-    100% {
-        -moz-transform: scale(1);
-    }
-}
-
-@-webkit-keyframes scale_anim {
-    0% {
-        -webkit-transform: scale(4,4);
-    }
-
-    100% {
-        -webkit-transform: scale(1,1);
-    }
-}
-
-
-@media only screen and (orientation:portrait) {
-    #wrapper {
-        display: none;
-    }
-
-    #warning-message {
-        display: block;
-    }
-}
-
-@media only screen and (orientation:landscape) {
-    #warning-message {
-        display: none;
-    }
-}
-
-
 #Menu {
     position: fixed;
     top: 0px;
@@ -144,7 +96,8 @@
     right: 0px;
     bottom: 0px;
     background: rgba(0, 0, 0, 0.54);
-    z-index: 140;
+    z-index: 300;
+    display: none;
 }
 
 #Menu .start {

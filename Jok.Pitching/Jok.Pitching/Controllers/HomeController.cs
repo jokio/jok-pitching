@@ -13,8 +13,10 @@ namespace Jok.Pitching.Controllers
             return RedirectToAction("Play");
         }
 
-        public ActionResult Play()
+        public ActionResult Play(string deviceid)
         {
+            ViewBag.DeviceID = deviceid;
+
             return View();
         }
     }

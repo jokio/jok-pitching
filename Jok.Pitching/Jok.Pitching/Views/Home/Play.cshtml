@@ -1,45 +1,40 @@
-﻿@{ Layout = null; }
+﻿@{
+    Layout = (ViewBag.DeviceID == null) ? Layout : null;
+}
+
 @using R = Resources.Play
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
-    <title>Game Jam - Fun</title>
-    <meta property="og:image" content="http://gamejamfun.jok.io/Images/user_avatar_hp_4.png">
-    <script>
-        var ML = {
-            A002: '@R.A002',
-            A003: '@R.A003',
-        }
-    </script>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/js")
-</head>
-<body>
-    <div id="Game">
-        <img class="user_avatar" data-hp="5" src="~/Images/user_avatar_hp_5.png" />
-        <div class="balance">
-            <img class="tomato" src="~/Images/tomato.png" style="position: relative;" />
-            <span>100</span>
-        </div>
-        <img class="tribuna" src="~/Images/gift-package.png" />
-        <div class="result"></div>
-        <div class="volume">
-            <span class="glyphicon glyphicon-volume-off" style="display: none;"></span>
-            <span class="glyphicon glyphicon-volume-up"></span>
-        </div>
+<script>
+    var ML = {
+        A002: '@R.A002',
+        A003: '@R.A003',
+    }
+    var RootUrl = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
+</script>
+@Styles.Render("~/Content/css")
+
+<div id="Game">
+    @*<img class="user_avatar" data-hp="5" src="@Url.ContentAbsUrl("~/Images/user_avatar_hp_5.png")" />*@
+    <div class="balance">
+        <span>100</span>
     </div>
-    <div id="Menu">
-        <div class="start">
-            <img src="~/Images/gamejam.png" /><br /><br />
-            <button id="StartGame" class="btn btn-default">@R.A001</button>
-        </div>
-        <div class="finish">
-            <div class="results"></div>
-            <button id="PlayAgain" class="btn btn-default">@R.A004</button>
-        </div>
+    @*<img class="tribuna" src="@Url.ContentAbsUrl("~/Images/gift-package.png")" />*@
+    @*<div class="result"></div>*@
+    @*<div class="volume">
+        <span class="glyphicon glyphicon-volume-off" style="display: none;"></span>
+        <span class="glyphicon glyphicon-volume-up"></span>
+    </div>*@
+    <div id="Container">
     </div>
-    <script src="http://debug.jok.io/target/target-script-min.js#anonymous"></script>
-</body>
-</html>
+</div>
+<div id="Menu">
+    <div class="start">
+        <img src="@Url.ContentAbsUrl("~/Images/gamejam.png")" /><br /><br />
+        <button id="StartGame" class="btn btn-default btn-lg">@R.A001</button>
+    </div>
+    <div class="finish">
+        <div class="results"></div>
+        <button id="PlayAgain" class="btn btn-default btn-lg">@R.A004</button>
+    </div>
+</div>
+@*<script src="http://debug.jok.io/target/target-script-min.js#anonymous"></script>*@
+@Scripts.Render("~/bundles/js")
