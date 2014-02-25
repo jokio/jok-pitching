@@ -19,7 +19,7 @@ var Game = {
         });
 
         $(document).on('keydown', this.UIKeyDown);
-        $(document).on('click', '#Container', this.UIFire);
+        //$(document).on('click', '#Container', this.UIFire);
         $(document).on('click', '#StartGame', this.UIStartGame);
         $(document).on('click', '#PlayAgain', this.UIPlayAgain);
         $(document).on('click', '#Game .volume', this.UIToggleMusic);
@@ -166,7 +166,7 @@ var Game = {
                     $('#Game .user_avatar').attr('src', RootUrl + '/Images/user_avatar_hp_' + hp + '.png');
                     $('#Game .user_avatar').attr('data-hp', hp);
                 } else {
-                    clearInterval(_this.tomatoFireHandler);
+                    clearTimeout(_this.tomatoFireHandler);
                     _this.finishGame(false);
                 }
             }
@@ -222,15 +222,20 @@ var Game = {
         newImg.src = RootUrl + 'Images/user_avatar_hp_' + this.userHP + '.png';
         this.userImg.setImage(newImg);
 
-        this.tomatoFireHandler = setInterval(function () {
-            var x = ($('#Game').width() - 200) * Math.random() + 100;
-            var y = ($('#Game').height() - 600) * Math.random() + 300;
-
-            Game.fireTomato2(x, y);
-
-        }, 500);
+        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 500);
 
         //this.bgAudio.play();
+    },
+
+    autoFireTomato: function () {
+        var x = ($('#Game').width() - 200) * Math.random() + 100;
+        var y = ($('#Game').height() - 600) * Math.random() + 300;
+
+        var tomatosCount = $('#Game .balance span').html();
+
+        this.fireTomato2(x, y);
+
+        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 5 * tomatosCount + Math.random() * 500);
     },
 
     finishGame: function (isWinner) {
@@ -344,10 +349,12 @@ var Game = {
 
                         var newImg = new Image();
                         newImg.src = RootUrl + 'Images/user_avatar_hp_' + _this.userHP + '.png';
-                        _this.userImg.setImage(newImg);
+                        newImg.onload = function () {
+                            _this.userImg.setImage(newImg);
+                        };
 
                     } else {
-                        clearInterval(_this.tomatoFireHandler);
+                        clearTimeout(_this.tomatoFireHandler);
                         _this.finishGame(false);
                     }
 
