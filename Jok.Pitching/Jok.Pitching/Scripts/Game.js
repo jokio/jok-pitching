@@ -10,6 +10,8 @@ var Game = {
 
     userHP: 5,
 
+    lastDeviceRotateTime: Date.now(),
+
     //bgAudio: undefined,
 
     init: function () {
@@ -196,6 +198,10 @@ var Game = {
 
     deviceMotionHandler: function (eventData) {
 
+        if (Date.now() - Game.lastDeviceRotateTime < 50) return;
+
+        Game.lastDeviceRotateTime = Date.now();
+
         var left = Game.userImg.getPosition().x;
 
         if (left + eventData.rotationRate.alpha < 150 || left + eventData.rotationRate.alpha > 690) return;
@@ -244,6 +250,8 @@ var Game = {
         $('#Menu .start').hide();
         $('#Menu').show();
 
+        clearTimeout(this.tomatoFireHandler);
+
         //if (bgAudio) {
         //    bgAudio.stop();
         //    bgAudio.load('http://stop.me');
@@ -252,6 +260,12 @@ var Game = {
 
 
     fxSplashPlay: function () {
+
+        if (window.JM && window.JM.playAudio) {
+            window.JM.playAudio('/Audio/splash.wav');
+            return;
+        }
+
         var audio = new Audio('/Audio/splash.wav');
         audio.play();
     },
@@ -259,6 +273,11 @@ var Game = {
     fxMissPlay: function () {
 
         var url = (Math.floor((Math.random() * 10)) == 0) ? '/Audio/miss2.mp3' : '/Audio/miss2.mp3';
+
+        if (window.JM && window.JM.playAudio) {
+            window.JM.playAudio(url);
+            return;
+        }
 
         var audio = new Audio(url);
         audio.volume = .4;
@@ -297,7 +316,6 @@ var Game = {
 
         var count = $('#Game .balance span').html();
         if (!count || count <= 0) {
-            this.finishGame(true);
             return;
         }
 
@@ -352,6 +370,10 @@ var Game = {
                         newImg.onload = function () {
                             _this.userImg.setImage(newImg);
                         };
+
+                        if (count <= 0) {
+                            this.finishGame(true);
+                        }
 
                     } else {
                         clearTimeout(_this.tomatoFireHandler);
