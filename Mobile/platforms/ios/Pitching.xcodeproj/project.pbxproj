@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01AF4C42EC354FE496ED9AD8 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 491DC9511A314D149EB67721 /* CDVInAppBrowser.m */; };
+		089612F99CB345BF84FFA8CE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1359B36CB1244CAB8065793D /* GameKit.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
@@ -30,6 +31,7 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		333F33C155D944E0A8BA48DE /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		5C69D48A6EAC4D3DA8D560B8 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 254834491F2D46BF994B8C07 /* CDVNotification.bundle */; };
@@ -46,9 +48,11 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		8B4D213D204A4827944A6025 /* CDVJokUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83BD41A2244D4FB5AC300C /* CDVJokUtils.m */; };
 		A1612FEFF60C46EE938731E3 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F5228BD34417438DA5445A6F /* CDVDevice.m */; };
+		CED15D7B66CB4EA497F931C0 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F72DAAFE349147E19A4B0308 /* CDVAccelerometer.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D57D1EC11CAC45D3B7714FEA /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63DA9BC7424E01938AC80C /* CDVNotification.m */; };
 		D581DC6A958341A69F98448E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507F2F98A3DC452986EC1572 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F53F3C2E58724DBE92AFACDE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93AC7FA0F494F988968F254 /* CoreMotion.framework */; };
 		F9F5B2D0226B4365843BC6C5 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EFD945C99247F3B433F791 /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		0FBA6FC538384B8085AD0BBA /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = org.apache.cordova.dialogs/CDVNotification.h; sourceTree = "<group>"; };
+		1359B36CB1244CAB8065793D /* GameKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Pitching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitching.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +83,7 @@
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		254834491F2D46BF994B8C07 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
+		26C498F4BE3B46689E7A7F70 /* CDVAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVAccelerometer.h; path = "org.apache.cordova.device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; };
 		27D9B53318BD0622005B9455 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Pitching/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		27D9B53618BD06F3005B9455 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		27D9B53818BD07A2005B9455 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -102,6 +108,7 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Pitching-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pitching-Prefix.pch"; sourceTree = "<group>"; };
+		3785AB8147AA4B37825E7DC0 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenter.h; path = com.gartic.gamecenter/GameCenter.h; sourceTree = "<group>"; };
 		491DC9511A314D149EB67721 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		507F2F98A3DC452986EC1572 /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		51A3FF2E788241E0AF314E47 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.vibration/CDVVibration.m; sourceTree = "<group>"; };
@@ -123,6 +130,8 @@
 		900710A7FDA04B88A7EF69E7 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
 		9D83BD41A2244D4FB5AC300C /* CDVJokUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJokUtils.m; path = com.phonegap.plugins.jokutils/CDVJokUtils.m; sourceTree = "<group>"; };
 		B4EFD945C99247F3B433F791 /* CDVSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSound.m; path = org.apache.cordova.media/CDVSound.m; sourceTree = "<group>"; };
+		B93AC7FA0F494F988968F254 /* CoreMotion.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenter.m; path = com.gartic.gamecenter/GameCenter.m; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		E22BF64466FE4BBBB978770E /* CDVSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSound.h; path = org.apache.cordova.media/CDVSound.h; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
@@ -130,6 +139,7 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		EFB57FDA910F479398941482 /* CDVJokUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJokUtils.h; path = com.phonegap.plugins.jokutils/CDVJokUtils.h; sourceTree = "<group>"; };
 		F5228BD34417438DA5445A6F /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
+		F72DAAFE349147E19A4B0308 /* CDVAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAccelerometer.m; path = "org.apache.cordova.device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Pitching/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +156,8 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
+				F53F3C2E58724DBE92AFACDE /* CoreMotion.framework in Frameworks */,
+				089612F99CB345BF84FFA8CE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +256,8 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				507F2F98A3DC452986EC1572 /* AudioToolbox.framework */,
+				B93AC7FA0F494F988968F254 /* CoreMotion.framework */,
+				1359B36CB1244CAB8065793D /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +285,10 @@
 				EFB57FDA910F479398941482 /* CDVJokUtils.h */,
 				B4EFD945C99247F3B433F791 /* CDVSound.m */,
 				E22BF64466FE4BBBB978770E /* CDVSound.h */,
+				F72DAAFE349147E19A4B0308 /* CDVAccelerometer.m */,
+				26C498F4BE3B46689E7A7F70 /* CDVAccelerometer.h */,
+				C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */,
+				3785AB8147AA4B37825E7DC0 /* GameCenter.h */,
 			);
 			name = Plugins;
 			path = Pitching/Plugins;
@@ -365,6 +383,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = T37ZNSJLEK;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Pitching" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -473,6 +496,8 @@
 				755383D60B9547579784DE90 /* CDVVibration.m in Sources */,
 				8B4D213D204A4827944A6025 /* CDVJokUtils.m in Sources */,
 				F9F5B2D0226B4365843BC6C5 /* CDVSound.m in Sources */,
+				CED15D7B66CB4EA497F931C0 /* CDVAccelerometer.m in Sources */,
+				333F33C155D944E0A8BA48DE /* GameCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

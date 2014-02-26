@@ -41,6 +41,27 @@ module.exports = [
         "clobbers": [
             "window.Media"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-motion/www/Acceleration.js",
+        "id": "org.apache.cordova.device-motion.Acceleration",
+        "clobbers": [
+            "Acceleration"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-motion/www/accelerometer.js",
+        "id": "org.apache.cordova.device-motion.accelerometer",
+        "clobbers": [
+            "navigator.accelerometer"
+        ]
+    },
+    {
+        "file": "plugins/com.gartic.gamecenter/www/gamecenter.js",
+        "id": "com.gartic.gamecenter.GameCenter",
+        "clobbers": [
+            "gamecenter"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -51,7 +72,9 @@ module.exports.metadata =
     "org.apache.cordova.inappbrowser": "0.3.1",
     "org.apache.cordova.vibration": "0.3.7",
     "com.phonegap.plugins.jokutils": "0.1.0",
-    "org.apache.cordova.media": "0.2.8"
+    "org.apache.cordova.media": "0.2.8",
+    "org.apache.cordova.device-motion": "0.2.6",
+    "com.gartic.gamecenter": "1.0"
 }
 // BOTTOM OF METADATA
 });
