@@ -26,12 +26,42 @@ var Game = {
 
         $(document).on('keydown', this.UIKeyDown);
         //$(document).on('click', '#Container', this.UIFire);
-        $(document).on('click', '#StartGame', this.UIStartGame);
-        $(document).on('click', '#PlayAgain', this.UIPlayAgain);
+        $(document).on('click touchstart', '#StartGame', this.UIStartGame);
+        $(document).on('click touchstart', '#PlayAgain', this.UIPlayAgain);
         $(document).on('click', '#Game .volume', this.UIToggleMusic);
+        $(document).on('click touchstart', '#Menu .top_speakers_btn', this.UIShowLeaderboard);
 
-        if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', this.deviceMotionHandler, false);
+        window.addEventListener("touchmove", function (event) {
+            if (!event.target.classList.contains('scrollable')) {
+                // no more scrolling
+                event.preventDefault();
+            }
+        }, false);
+
+        if (window.JM) {
+            function onSuccess(acceleration) {
+
+                Game.setUserAvatarByCoef(acceleration.y);
+
+            };
+
+            function onError() {
+                console.log('onError!');
+            };
+
+            var options = { frequency: 100 };
+
+            var watchID = window.JM.accelerometer.watchAcceleration(onSuccess, onError, options);
+        }
+        else {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', this.deviceMotionHandler, false);
+            }
+        }
+
+
+        if (window.gamecenter) {
+            window.gamecenter.auth();
         }
 
         //this.bgAudio = new Audio('/Audio/Lights.mp3');
@@ -84,6 +114,15 @@ var Game = {
         this.initAnimation();
     },
 
+    UIShowLeaderboard: function () {
+        if (!window.gamecenter) return;
+
+        var data = {
+            period: "today",
+            leaderboardId: "speakers"
+        };
+        window.gamecenter.showLeaderboard(function () { }, function () { }, data);
+    },
 
     UIKeyDown: function (e) {
 
@@ -93,16 +132,22 @@ var Game = {
             if (left < 160)
                 return;
 
-            Game.userImg.setPosition({ x: left - 20 });
-            //$('#Game .user_avatar').css('left', left - 10);
+            new Kinetic.Tween({
+                node: Game.userImg,
+                duration: 0.02,
+                x: left - 20,
+            }).play();
         }
 
         if (e.keyCode == 39) { // right
             if (left > 800)
                 return;
 
-            Game.userImg.setPosition({ x: left + 20 });
-            //$('#Game .user_avatar').css('left', left + 10);
+            new Kinetic.Tween({
+                node: Game.userImg,
+                duration: 0.02,
+                x: left + 20,
+            }).play();
         }
     },
 
@@ -250,15 +295,22 @@ var Game = {
 
         this.fireTomato2(x, y);
 
-        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 500 / tomatosCount + Math.random() * 300);
+        var nextFireInterval = 500 / tomatosCount + Math.random() * 300;
+        if (this.score > 800)
+            nextFireInterval = Math.random() * 200;
+
+        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), nextFireInterval);
     },
 
     finishGame: function (isWinner) {
 
         if (this.isFinished) return;
 
+        var highscore = this.saveHighScore(this.score);
+
         //$('#Menu .finish .results').html(isWinner ? ML.A002 : ML.A003);
-        $('#Menu .finish .results').html(ML.A006 + ' ' + this.score);
+        $('#Menu .finish .results span').html(this.score);
+        $('#Menu .finish .highscore span').html(highscore);
         $('#Menu .finish').show();
         $('#Menu .start').hide();
         $('#Menu').show();
@@ -271,6 +323,55 @@ var Game = {
         //    bgAudio.stop();
         //    bgAudio.load('http://stop.me');
         //}
+    },
+
+    setUserAvatarByCoef: function (coef) {
+
+        var range = 3;
+
+        var rotateCoef = coef;
+        if (rotateCoef < -1 * range)
+            rotateCoef = -1 * range;
+
+        if (rotateCoef > range)
+            rotateCoef = range;
+
+        rotateCoef += range;
+
+        if (rotateCoef <= 0)
+            rotateCoef = 0.01
+
+
+        var width = 800 - 160;
+        var left = 160 + width * rotateCoef / (range * 2);
+
+
+        //console.log(rotateCoef, width, left);
+
+        new Kinetic.Tween({
+            node: Game.userImg,
+            duration: 0.1,
+            x: left,
+        }).play();
+
+        //Game.userImg.setPosition({ x: left });
+    },
+
+    saveHighScore: function (value) {
+        var highscore = parseInt($.cookie('hightscore'));
+        if (highscore && highscore > value) return highscore;
+
+        $.cookie('hightscore', value, { expire: 100000 });
+
+        if (window.gamecenter) {
+            var data = {
+                score: value,
+                leaderboardId: "speakers"
+            };
+            window.gamecenter.submitScore(function () { }, function () { }, data);
+        }
+
+        return value;
     },
 
 
@@ -425,20 +526,3 @@ var Game = {
 Game.init();
 
 
-
-if (window.JM) {
-    function onSuccess(acceleration) {
-        alert('Acceleration X: ' + acceleration.x + '\n' +
-              'Acceleration Y: ' + acceleration.y + '\n' +
-              'Acceleration Z: ' + acceleration.z + '\n' +
-              'Timestamp: ' + acceleration.timestamp + '\n');
-    };
-
-    function onError() {
-        alert('onError!');
-    };
-
-    var options = { frequency: 50 };
-
-    var watchID = window.JM.accelerometer.watchAcceleration(onSuccess, onError, options);
-}

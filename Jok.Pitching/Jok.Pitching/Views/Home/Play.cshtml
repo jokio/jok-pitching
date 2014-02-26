@@ -7,7 +7,6 @@
     var ML = {
         A002: '@R.A002',
         A003: '@R.A003',
-        A006: '@R.A006',
     }
     var RootUrl = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
 </script>
@@ -23,11 +22,22 @@
     <div id="Menu">
         <div class="start">
             <img src="@Url.ContentAbsUrl("~/Images/gamejam.png")" /><br /><br />
-            <button id="StartGame" class="btn btn-default btn-lg">@R.A001</button>
+            <div>
+                <button id="StartGame" class="btn btn-default btn-lg">@R.A001</button>
+            </div>
+            <div>
+                <button class="top_speakers_btn btn btn-lg btn-danger">@R.A008</button>
+            </div>
         </div>
         <div class="finish">
-            <div class="results"></div>
-            <button id="PlayAgain" class="btn btn-default btn-lg">@R.A004</button>
+            <div class="highscore">@R.A007 <span></span></div>
+            <div class="results">@R.A006 <span></span></div>
+            <div>
+                <button id="PlayAgain" class="btn btn-default btn-lg">@R.A004</button>
+            </div>
+            <div>
+                <button class="top_speakers_btn btn btn-lg btn-danger">@R.A008</button>
+            </div>
         </div>
     </div>
     @Scripts.Render("~/bundles/js")

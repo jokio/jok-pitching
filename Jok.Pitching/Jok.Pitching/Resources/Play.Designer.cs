@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Speech.
+        ///   Looks up a localized string similar to Play (as Speaker).
         /// </summary>
         public static string A001 {
             get {
@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your Score is: .
+        ///   Looks up a localized string similar to Your Score: .
         /// </summary>
         public static string A006 {
             get {
@@ -115,11 +115,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Highscore:.
         /// </summary>
         public static string A007 {
             get {
                 return ResourceManager.GetString("A007", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top Speakers.
+        /// </summary>
+        public static string A008 {
+            get {
+                return ResourceManager.GetString("A008", resourceCulture);
             }
         }
     }

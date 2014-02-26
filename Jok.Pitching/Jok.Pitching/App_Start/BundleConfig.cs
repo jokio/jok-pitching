@@ -14,6 +14,7 @@ namespace Jok.Pitching
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
+                        "~/Scripts/jquery.cookie.js",
                         "~/Scripts/kinetic-v5.0.1.min.js",
                         "~/Scripts/Game.js"));
 

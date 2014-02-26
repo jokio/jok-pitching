@@ -128,3 +128,33 @@ img {
     text-align: center;
     display: none;
 }
+
+
+#Menu .finish .highscore {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgb(173, 173, 171);
+    font-size: 36px;
+}
+
+#Menu .finish .results {
+    margin-bottom: 20px;
+}
+
+#Menu .top_speakers_btn {
+    margin-top: 20px;
+}
+
+
+#StartGame {
+    min-width: 260px;
+    height: 70px;
+    font-size: 26px;
+}
+
+#PlayAgain {
+    min-width: 260px;
+    height: 70px;
+    font-size: 26px;
+}
