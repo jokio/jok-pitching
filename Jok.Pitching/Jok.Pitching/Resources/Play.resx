@@ -130,10 +130,10 @@
     <value>Play Again</value>
   </data>
   <data name="A005" xml:space="preserve">
-    <value />
+    <value>Game Finished.</value>
   </data>
   <data name="A006" xml:space="preserve">
-    <value />
+    <value>Your Score is: </value>
   </data>
   <data name="A007" xml:space="preserve">
     <value />

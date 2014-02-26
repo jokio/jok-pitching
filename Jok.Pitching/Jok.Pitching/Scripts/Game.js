@@ -10,6 +10,10 @@ var Game = {
 
     userHP: 5,
 
+    score: 0,
+
+    isFinished: true,
+
     lastDeviceRotateTime: Date.now(),
 
     //bgAudio: undefined,
@@ -114,7 +118,6 @@ var Game = {
     },
 
     UIPlayAgain: function () {
-        $('#Game .balance span').html(100);
         $('#Menu').hide();
 
         Game.startGame();
@@ -223,13 +226,17 @@ var Game = {
 
     startGame: function () {
 
+        this.score = 0;
         this.userHP = 5;
         var newImg = new Image();
         newImg.src = RootUrl + 'Images/user_avatar_hp_' + this.userHP + '.png';
         this.userImg.setImage(newImg);
 
+        $('#Game .balance span').html(this.score);
+
         this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 500);
 
+        this.isFinished = false;
         //this.bgAudio.play();
     },
 
@@ -237,20 +244,28 @@ var Game = {
         var x = ($('#Game').width() - 200) * Math.random() + 100;
         var y = ($('#Game').height() - 600) * Math.random() + 270;
 
-        var tomatosCount = $('#Game .balance span').html();
+        var tomatosCount = (this.score || 1) / 10;
+        if (tomatosCount < 1)
+            tomatosCount = 1;
 
         this.fireTomato2(x, y);
 
-        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 5 * tomatosCount + Math.random() * 500);
+        this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 500 / tomatosCount + Math.random() * 300);
     },
 
     finishGame: function (isWinner) {
-        $('#Menu .finish .results').html(isWinner ? ML.A002 : ML.A003);
+
+        if (this.isFinished) return;
+
+        //$('#Menu .finish .results').html(isWinner ? ML.A002 : ML.A003);
+        $('#Menu .finish .results').html(ML.A006 + ' ' + this.score);
         $('#Menu .finish').show();
         $('#Menu .start').hide();
         $('#Menu').show();
 
         clearTimeout(this.tomatoFireHandler);
+
+        this.isFinished = true;
 
         //if (bgAudio) {
         //    bgAudio.stop();
@@ -314,14 +329,10 @@ var Game = {
 
     fireTomato2: function (x, y) {
 
-        var count = $('#Game .balance span').html();
-        if (!count || count <= 0) {
-            return;
-        }
+        //if (!count || count <= 0) {
+        //    return;
+        //}
 
-
-        count--;
-        $('#Game .balance span').html(count);
 
         var img = new Image();
         img.src = RootUrl + '/Images/tomato.png';
@@ -380,6 +391,11 @@ var Game = {
 
                 }
                 else {
+                    if (!_this.isFinished) {
+                        _this.score++;
+                        $('#Game .balance span').html(_this.score);
+                    }
+
                     _this.fxMissPlay();
 
 
@@ -397,9 +413,9 @@ var Game = {
                     }).play();
                 }
 
-                if ($('#Game .balance span').html() <= 0) {
-                    _this.finishGame(true);
-                }
+                //if ($('#Game .balance span').html() <= 0) {
+                //    _this.finishGame(true);
+                //}
             }
         }).play();
 
@@ -407,3 +423,22 @@ var Game = {
 }
 
 Game.init();
+
+
+
+if (window.JM) {
+    function onSuccess(acceleration) {
+        alert('Acceleration X: ' + acceleration.x + '\n' +
+              'Acceleration Y: ' + acceleration.y + '\n' +
+              'Acceleration Z: ' + acceleration.z + '\n' +
+              'Timestamp: ' + acceleration.timestamp + '\n');
+    };
+
+    function onError() {
+        alert('onError!');
+    };
+
+    var options = { frequency: 50 };
+
+    var watchID = window.JM.accelerometer.watchAcceleration(onSuccess, onError, options);
+}
