@@ -22,8 +22,14 @@
     <feature name="JokUtils">
         <param name="ios-package" value="CDVJokUtils" />
     </feature>
+    <feature name="GameCenter">
+        <param name="ios-package" value="GameCenter" />
+    </feature>
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Accelerometer">
+        <param name="ios-package" value="CDVAccelerometer" />
     </feature>
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
@@ -51,10 +57,4 @@
     <preference name="Orientation" value="landscape" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
-    <feature name="Accelerometer">
-        <param name="ios-package" value="CDVAccelerometer" />
-    </feature>
-    <feature name="GameCenter">
-        <param name="ios-package" value="GameCenter" />
-    </feature>
 </widget>

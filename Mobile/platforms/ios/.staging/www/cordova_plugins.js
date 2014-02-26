@@ -57,8 +57,8 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.gartic.gamecenter/www/gamecenter.js",
-        "id": "com.gartic.gamecenter.GameCenter",
+        "file": "plugins/gamecenter/www/gamecenter.js",
+        "id": "gamecenter.GameCenter",
         "clobbers": [
             "gamecenter"
         ]
@@ -74,7 +74,7 @@ module.exports.metadata =
     "com.phonegap.plugins.jokutils": "0.1.0",
     "org.apache.cordova.media": "0.2.8",
     "org.apache.cordova.device-motion": "0.2.6",
-    "com.gartic.gamecenter": "1.0"
+    "gamecenter": "0.2.3"
 }
 // BOTTOM OF METADATA
 });

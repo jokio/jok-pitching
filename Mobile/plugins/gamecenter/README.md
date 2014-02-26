@@ -52,28 +52,6 @@ gamecenter.showLeaderboard(successCallback, failureCallback, data);
 
 The period options are "today", "week" or "all".
 
-### Submit Achievement
-
-```
-var data = {
-    percent: 100,
-    achievementId: "achievement1"
-};
-gamecenter.submitScore(successCallback, failureCallback, data);
-```
-
-### Show Achievements
-
-```
-gamecenter.showAchievements(successCallback, failureCallback);
-```
-
-### Reset Achievements
-
-```
-gamecenter.resetAchievements(successCallback, failureCallback);
-```
-
 ## Platforms
 
 Supports iOS 6 and iOS 7 (there are differences in the native implementation). The Game Center is Apple specific and not applicable to other platforms.

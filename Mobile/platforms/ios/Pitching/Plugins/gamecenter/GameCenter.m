@@ -9,8 +9,6 @@
 
 @implementation GameCenter
 
-@synthesize achievementDescriptions;
-
 - (void) auth:(CDVInvokedUrlCommand*)command;
 {
     // __weak to avoid retain cycle
@@ -28,7 +26,6 @@
             if (localPlayer.isAuthenticated)
             {
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-                [self retrieveAchievmentMetadata];
             }
             else if (error != nil)
             {
@@ -133,107 +130,6 @@
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     }
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (void) submitAchievement:(CDVInvokedUrlCommand*)command;
-{
-    NSMutableDictionary *args = [command.arguments objectAtIndex:0];
-    int64_t percent = [[args objectForKey:@"percent"] integerValue];
-    NSString *achievementId = [args objectForKey:@"achievementId"];
-
-    __block CDVPluginResult* pluginResult = nil;
-
-    GKAchievement *achievement = [[GKAchievement alloc] initWithIdentifier: achievementId];
-    if (achievement)
-    {
-         achievement.percentComplete = percent;
-         [achievement reportAchievementWithCompletionHandler:^(NSError *error)
-             {
-                  if (error)
-                  {
-                      pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
-                  }
-                  else {
-                      pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-                  }
-                  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-             }];
-    }
-}
-
-- (void) showAchievements: (CDVInvokedUrlCommand*)command;
-{
-    CDVPluginResult* pluginResult = nil;
-
-    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
-    if (gameCenterController != nil)
-    {
-        gameCenterController.gameCenterDelegate = self;
-        gameCenterController.viewState = GKGameCenterViewControllerStateAchievements;
-        [self.viewController presentViewController:gameCenterController animated:YES completion:nil];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    }
-     else
-    {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (void) resetAchievements: (CDVInvokedUrlCommand*)command;
-{
-    __block CDVPluginResult* pluginResult = nil;
-    
-    // Clear all progress saved on Game Center.
-    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)
-     {
-         if (error)
-         {
-             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
-         }
-         else
-         {
-             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-         }
-         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-     }];
-}
-
-- (void) showNotification: (CDVInvokedUrlCommand*)command;
-{
-    NSMutableDictionary *args = [command.arguments objectAtIndex:0];
-    NSString *achievementId = [args objectForKey:@"achievementId"];
-    
-    CDVPluginResult* pluginResult = nil;
-    
-    GKAchievementDescription *achievementDescription = [achievementDescriptions objectForKey:achievementId];
-    
-    if(achievementDescription != nil) {
-        [GKNotificationBanner showBannerWithTitle:achievementDescription.title message:achievementDescription.achievedDescription completionHandler:nil];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (void) retrieveAchievmentMetadata
-{
-    achievementDescriptions = [[NSMutableDictionary alloc] init];
-    
-    [GKAchievementDescription loadAchievementDescriptionsWithCompletionHandler:
-     ^(NSArray *descriptions, NSError *error) {
-         if (error != nil)
-         {
-             NSLog(@"Error in reporting achievements: %@", error);
-         }
-         if (descriptions != nil)
-         {
-             for (GKAchievementDescription *achievementDescription in descriptions) {
-                 [achievementDescriptions setObject:achievementDescription forKey:achievementDescription.identifier];
-             }
-         }
-     }];
 }
 
 - (void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		01AF4C42EC354FE496ED9AD8 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 491DC9511A314D149EB67721 /* CDVInAppBrowser.m */; };
-		089612F99CB345BF84FFA8CE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1359B36CB1244CAB8065793D /* GameKit.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
+		277CF33318BE736000610299 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1359B36CB1244CAB8065793D /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		27D9B53418BD0622005B9455 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D9B53318BD0622005B9455 /* Images.xcassets */; };
 		27D9B53718BD06F3005B9455 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D9B53618BD06F3005B9455 /* AVFoundation.framework */; };
 		27D9B53918BD07A2005B9455 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D9B53818BD07A2005B9455 /* MediaPlayer.framework */; };
@@ -31,7 +31,6 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
-		333F33C155D944E0A8BA48DE /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		5C69D48A6EAC4D3DA8D560B8 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 254834491F2D46BF994B8C07 /* CDVNotification.bundle */; };
@@ -48,6 +47,7 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		8B4D213D204A4827944A6025 /* CDVJokUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83BD41A2244D4FB5AC300C /* CDVJokUtils.m */; };
 		A1612FEFF60C46EE938731E3 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F5228BD34417438DA5445A6F /* CDVDevice.m */; };
+		C3339A006671402EAE3BD421 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940C2294354773A7A484EC /* GameCenter.m */; };
 		CED15D7B66CB4EA497F931C0 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F72DAAFE349147E19A4B0308 /* CDVAccelerometer.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D57D1EC11CAC45D3B7714FEA /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63DA9BC7424E01938AC80C /* CDVNotification.m */; };
@@ -108,12 +108,13 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Pitching-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pitching-Prefix.pch"; sourceTree = "<group>"; };
-		3785AB8147AA4B37825E7DC0 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenter.h; path = com.gartic.gamecenter/GameCenter.h; sourceTree = "<group>"; };
 		491DC9511A314D149EB67721 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		507F2F98A3DC452986EC1572 /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		51A3FF2E788241E0AF314E47 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.vibration/CDVVibration.m; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6515DF323A2A42018AF81EFF /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenter.h; path = gamecenter/GameCenter.h; sourceTree = "<group>"; };
+		6A940C2294354773A7A484EC /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenter.m; path = gamecenter/GameCenter.m; sourceTree = "<group>"; };
 		7D53E715800243BCAB1C55D4 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		9D83BD41A2244D4FB5AC300C /* CDVJokUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJokUtils.m; path = com.phonegap.plugins.jokutils/CDVJokUtils.m; sourceTree = "<group>"; };
 		B4EFD945C99247F3B433F791 /* CDVSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSound.m; path = org.apache.cordova.media/CDVSound.m; sourceTree = "<group>"; };
 		B93AC7FA0F494F988968F254 /* CoreMotion.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenter.m; path = com.gartic.gamecenter/GameCenter.m; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		E22BF64466FE4BBBB978770E /* CDVSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSound.h; path = org.apache.cordova.media/CDVSound.h; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277CF33318BE736000610299 /* GameKit.framework in Frameworks */,
 				27D9B53918BD07A2005B9455 /* MediaPlayer.framework in Frameworks */,
 				D581DC6A958341A69F98448E /* AudioToolbox.framework in Frameworks */,
 				27D9B53718BD06F3005B9455 /* AVFoundation.framework in Frameworks */,
@@ -157,7 +158,6 @@
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
 				F53F3C2E58724DBE92AFACDE /* CoreMotion.framework in Frameworks */,
-				089612F99CB345BF84FFA8CE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,8 +287,8 @@
 				E22BF64466FE4BBBB978770E /* CDVSound.h */,
 				F72DAAFE349147E19A4B0308 /* CDVAccelerometer.m */,
 				26C498F4BE3B46689E7A7F70 /* CDVAccelerometer.h */,
-				C887FEC0A2BA4A7D960BD9AD /* GameCenter.m */,
-				3785AB8147AA4B37825E7DC0 /* GameCenter.h */,
+				6A940C2294354773A7A484EC /* GameCenter.m */,
+				6515DF323A2A42018AF81EFF /* GameCenter.h */,
 			);
 			name = Plugins;
 			path = Pitching/Plugins;
@@ -497,7 +497,7 @@
 				8B4D213D204A4827944A6025 /* CDVJokUtils.m in Sources */,
 				F9F5B2D0226B4365843BC6C5 /* CDVSound.m in Sources */,
 				CED15D7B66CB4EA497F931C0 /* CDVAccelerometer.m in Sources */,
-				333F33C155D944E0A8BA48DE /* GameCenter.m in Sources */,
+				C3339A006671402EAE3BD421 /* GameCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
