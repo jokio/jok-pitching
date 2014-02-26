@@ -37,8 +37,8 @@ var Game = {
         // Stage
         var stage = new Kinetic.Stage({
             container: 'Container',
-            width: 900,
-            height: 675
+            width: 1024,
+            height: 768
         });
 
 
@@ -52,8 +52,8 @@ var Game = {
         img.src = RootUrl + '/Images/user_avatar_hp_5.png';
 
         this.userImg = new Kinetic.Image({
-            x: 175,
-            y: 340,
+            x: 200,
+            y: 360,
             image: img,
             width: 100,
             height: 157,
@@ -64,14 +64,14 @@ var Game = {
 
         // Tribuna Image
         var img2 = new Image();
-        img2.src = RootUrl + '/Images/gift-package.png';
+        img2.src = RootUrl + '/Images/tribuna.png';
 
         var tribunaImg = new Kinetic.Image({
-            x: 0,
-            y: 0,
+            x: 137,
+            y: 380,
             image: img2,
-            width: stage.width(),
-            height: stage.height()
+            width: 117.248,
+            height: 196.608
         });
         this.canvasLayer.add(tribunaImg);
         tribunaImg.moveToTop();
@@ -86,7 +86,7 @@ var Game = {
         var left = Game.userImg.getPosition().x;
 
         if (e.keyCode == 37) { // left
-            if (left < 150)
+            if (left < 160)
                 return;
 
             Game.userImg.setPosition({ x: left - 20 });
@@ -94,7 +94,7 @@ var Game = {
         }
 
         if (e.keyCode == 39) { // right
-            if (left > 690)
+            if (left > 800)
                 return;
 
             Game.userImg.setPosition({ x: left + 20 });
@@ -204,7 +204,7 @@ var Game = {
 
         var left = Game.userImg.getPosition().x;
 
-        if (left + eventData.rotationRate.alpha < 150 || left + eventData.rotationRate.alpha > 690) return;
+        if (left + eventData.rotationRate.alpha < 160 || left + eventData.rotationRate.alpha > 800) return;
 
         Game.userImg.setPosition({ x: left + eventData.rotationRate.alpha });
     },
@@ -235,7 +235,7 @@ var Game = {
 
     autoFireTomato: function () {
         var x = ($('#Game').width() - 200) * Math.random() + 100;
-        var y = ($('#Game').height() - 600) * Math.random() + 300;
+        var y = ($('#Game').height() - 600) * Math.random() + 270;
 
         var tomatosCount = $('#Game .balance span').html();
 
@@ -262,7 +262,7 @@ var Game = {
     fxSplashPlay: function () {
 
         if (window.JM && window.JM.playAudio) {
-            window.JM.playAudio('/Audio/splash.wav');
+            window.JM.playAudio('audio/splash.wav');
             return;
         }
 
@@ -272,12 +272,12 @@ var Game = {
 
     fxMissPlay: function () {
 
-        var url = (Math.floor((Math.random() * 10)) == 0) ? '/Audio/miss2.mp3' : '/Audio/miss2.mp3';
-
         if (window.JM && window.JM.playAudio) {
-            window.JM.playAudio(url);
+            window.JM.playAudio('audio/miss2.mp3');
             return;
         }
+
+        var url = (Math.floor((Math.random() * 10)) == 0) ? '/Audio/miss2.mp3' : '/Audio/miss2.mp3';
 
         var audio = new Audio(url);
         audio.volume = .4;
@@ -371,10 +371,6 @@ var Game = {
                             _this.userImg.setImage(newImg);
                         };
 
-                        if (count <= 0) {
-                            this.finishGame(true);
-                        }
-
                     } else {
                         clearTimeout(_this.tomatoFireHandler);
                         _this.finishGame(false);
@@ -399,6 +395,10 @@ var Game = {
                         }
 
                     }).play();
+                }
+
+                if ($('#Game .balance span').html() <= 0) {
+                    _this.finishGame(true);
                 }
             }
         }).play();
