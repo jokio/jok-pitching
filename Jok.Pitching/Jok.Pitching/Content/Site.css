@@ -2,6 +2,7 @@
     height: 100%;
     background: black;
     overflow: hidden;
+    background: black;
 }
 
 img {
@@ -147,7 +148,7 @@ img {
 }
 
 
-#StartGame {
+#Menu .start_game {
     min-width: 260px;
     height: 70px;
     font-size: 26px;

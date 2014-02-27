@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A001" xml:space="preserve">
-    <value>Play (as Speaker)</value>
+    <value>Play as Speaker</value>
   </data>
   <data name="A002" xml:space="preserve">
     <value>You are winner!</value>
@@ -140,5 +140,11 @@
   </data>
   <data name="A008" xml:space="preserve">
     <value>Top Speakers</value>
+  </data>
+  <data name="A009" xml:space="preserve">
+    <value>Play as Jury</value>
+  </data>
+  <data name="A010" xml:space="preserve">
+    <value>Top Jury</value>
   </data>
 </root>

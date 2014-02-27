@@ -13,9 +13,6 @@
 @Styles.Render("~/Content/css")
 <div id="Root">
     <div id="Game">
-        <div class="balance">
-            <span>100</span>
-        </div>
         <div id="Container">
         </div>
     </div>
@@ -23,20 +20,29 @@
         <div class="start">
             <img src="@Url.ContentAbsUrl("~/Images/gamejam.png")" /><br /><br />
             <div>
-                <button id="StartGame" class="btn btn-default btn-lg">@R.A001</button>
+                <button data-mode="1" class="start_game btn btn-default btn-lg">@R.A001</button>
+                <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-danger">@R.A008</button>
+                <button class="top_speakers_btn btn btn-lg btn-danger" style="min-width: 220px;">@R.A008</button>
+            </div>
+            <div>
+                <button class="top_speakers_btn btn btn-lg btn-warning" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
             </div>
         </div>
         <div class="finish">
             <div class="highscore">@R.A007 <span></span></div>
             <div class="results">@R.A006 <span></span></div>
             <div>
+                <button data-mode="1" class="start_game btn btn-default btn-lg">@R.A001</button>
                 <button id="PlayAgain" class="btn btn-default btn-lg">@R.A004</button>
+                <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-danger">@R.A008</button>
+                <button class="top_speakers_btn btn btn-lg btn-danger" style="min-width: 220px;">@R.A008</button>
+            </div>
+            <div>
+                <button class="top_speakers_btn btn btn-lg btn-warning" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
             </div>
         </div>
     </div>
