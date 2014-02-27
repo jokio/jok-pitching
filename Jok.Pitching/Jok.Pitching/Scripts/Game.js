@@ -494,7 +494,7 @@ var Game = {
                 else {
                     if (!_this.isFinished) {
                         _this.score++;
-                        $('#Game .balance span').html(_this.score);
+                        //$('#Game .balance span').html(_this.score);
                     }
 
                     _this.fxMissPlay();
