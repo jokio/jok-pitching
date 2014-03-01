@@ -16,6 +16,7 @@ namespace Jok.Pitching
                         "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/jquery.cookie.js",
                         "~/Scripts/kinetic-v5.0.1.min.js",
+                        "~/Scripts/fastclick.js",
                         "~/Scripts/Game.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

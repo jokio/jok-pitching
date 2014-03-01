@@ -8,6 +8,7 @@ var Game = {
     canvasLayer: undefined,
     userImg: undefined,
     scoreText: undefined,
+    hintText: undefined,
 
     userHP: 5,
     score: 0,
@@ -25,11 +26,12 @@ var Game = {
 
         $(document).on('keydown', this.UIKeyDown);
         $(document).on('click', '#Container', this.UIFire);
-        $(document).on('click touchstart', '.start_game', this.UIStartGame);
-        $(document).on('click touchstart', '#PlayAgain', this.UIPlayAgain);
+        $(document).on('click', '.start_game', this.UIStartGame);
+        $(document).on('click', '#PlayAgain', this.UIPlayAgain);
         $(document).on('click', '#Game .volume', this.UIToggleMusic);
-        $(document).on('click touchstart', '#Menu .top_speakers_btn', this.UIShowLeaderboard);
-
+        $(document).on('click', '#Menu .top_speakers_btn', this.UIShowLeaderboard);
+        $(document).on('click', '#Menu .top_juries_btn', this.UIShowLeaderboard);
+        
         window.addEventListener("touchmove", function (event) {
             if (!event.target.classList.contains('scrollable')) {
                 // no more scrolling
@@ -39,6 +41,8 @@ var Game = {
 
         if (window.JM) {
             function onSuccess(acceleration) {
+
+                if (Game.gameMode == 2) return;
 
                 Game.setUserAvatarByCoef(acceleration.y);
 
@@ -123,14 +127,23 @@ var Game = {
         this.canvasLayer.add(this.scoreText);
 
         this.initAnimation();
+
+
+
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+
     },
 
     UIShowLeaderboard: function () {
         if (!window.gamecenter) return;
 
+        var id = $(this).attr('data-id')
+
         var data = {
             period: "today",
-            leaderboardId: "speakers"
+            leaderboardId: id
         };
         window.gamecenter.showLeaderboard(function () { }, function () { }, data);
     },
@@ -169,9 +182,9 @@ var Game = {
         var x = e.offsetX;
         var y = e.offsetY;
 
-        if (Date.now() - Game.lastFireTime < 1000 && (x == Game.lastFireX || y == Game.lastFireY)) {
-            return;
-        }
+        //if (Date.now() - Game.lastFireTime < 1000 && (x == Game.lastFireX && y == Game.lastFireY)) {
+        //    return;
+        //}
 
         Game.lastFireTime = Date.now();
         Game.lastFireX = x;
@@ -221,6 +234,38 @@ var Game = {
         this.scoreText.setText(this.score);
 
 
+        this.hintText = new Kinetic.Text({
+            align: 'center',
+            y: 50,
+            x: 100,
+            width: 824,
+            fill: 'white',
+            fontSize: 30,
+            fontFamily: 'Arial',
+            text: ML.A012
+        });
+
+        this.canvasLayer.add(this.hintText);
+
+        var _this = this;
+        setTimeout(function () {
+
+            new Kinetic.Tween({
+
+                node: _this.hintText,
+                opacity: 0,
+                duration: 3,
+                onFinish: function () {
+                    _this.hintText.destroy();
+                }
+
+            }).play();
+            
+        }, 3000);
+
+
+
+
         this.gameMode = 1;
         this.tomatoFireHandler = setTimeout(this.autoFireTomato.bind(this), 500);
     },
@@ -235,6 +280,36 @@ var Game = {
         this.isFinished = false;
         this.scoreText.setText(this.score);
         this.scoreText.setFill('white');
+
+
+        this.hintText = new Kinetic.Text({
+            align: 'center',
+            y: 50,
+            x: 100,
+            width: 824,
+            fill: 'white',
+            fontSize: 30,
+            fontFamily: 'Arial',
+            text: ML.A011
+        });
+
+        this.canvasLayer.add(this.hintText);
+
+        var _this = this;
+        setTimeout(function () {
+
+            new Kinetic.Tween({
+
+                node: _this.hintText,
+                opacity: 0,
+                duration: 3,
+                onFinish: function () {
+                    _this.hintText.destroy();
+                }
+
+            }).play();
+
+        }, 3000);
 
 
         this.gameMode = 2;
@@ -412,11 +487,11 @@ var Game = {
     fireTomato: function (x, y) {
 
         if (this.gameMode == 2) {
+            if (this.score <= 0)
+                return;
+
             this.score--;
             this.scoreText.setText(this.score);
-
-            if (this.score < 0)
-                return;
         }
 
         var img = new Image();

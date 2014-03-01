@@ -147,4 +147,10 @@
   <data name="A010" xml:space="preserve">
     <value>Top Jury</value>
   </data>
+  <data name="A011" xml:space="preserve">
+    <value>Tap to fire</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>← Rotate phone left or right →</value>
+  </data>
 </root>

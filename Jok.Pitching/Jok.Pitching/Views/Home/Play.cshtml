@@ -7,6 +7,8 @@
     var ML = {
         A002: '@R.A002',
         A003: '@R.A003',
+        A011: '@R.A011',
+        A012: '@Html.Raw(R.A012)',
     }
     var RootUrl = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
 </script>
@@ -24,10 +26,10 @@
                 <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-danger" style="min-width: 220px;">@R.A008</button>
+                <button class="top_speakers_btn btn btn-lg btn-danger" data-id="speakers" style="min-width: 220px;">@R.A008</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-warning" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
+                <button class="top_juries_btn btn btn-lg btn-warning" data-id="juries" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
             </div>
         </div>
         <div class="finish">
@@ -39,10 +41,10 @@
                 <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-danger" style="min-width: 220px;">@R.A008</button>
+                <button class="top_speakers_btn btn btn-lg btn-danger" data-id="speakers" style="min-width: 220px;">@R.A008</button>
             </div>
             <div>
-                <button class="top_speakers_btn btn btn-lg btn-warning" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
+                <button class="top_juries_btn btn btn-lg btn-warning" data-id="juries" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
             </div>
         </div>
     </div>

@@ -149,5 +149,23 @@ namespace Resources {
                 return ResourceManager.GetString("A010", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tap to fire.
+        /// </summary>
+        public static string A011 {
+            get {
+                return ResourceManager.GetString("A011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ← Rotate phone left or right →.
+        /// </summary>
+        public static string A012 {
+            get {
+                return ResourceManager.GetString("A012", resourceCulture);
+            }
+        }
     }
 }
