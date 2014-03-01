@@ -10,7 +10,7 @@ namespace Jok.Pitching.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Play");
+            return View();
         }
 
         public ActionResult Play(string deviceid)

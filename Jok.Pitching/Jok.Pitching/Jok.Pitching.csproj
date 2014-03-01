@@ -135,13 +135,17 @@
     <Content Include="Audio\miss.wav" />
     <Content Include="Audio\splash.wav" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\background.jpg" />
+    <Content Include="Images\badge_appstore-lrg.png" />
     <Content Include="Images\gamejam.png" />
     <Content Include="Images\gift-package.png" />
+    <Content Include="Images\icon.png" />
+    <Content Include="Images\preview.png" />
     <Content Include="Images\tomato.png" />
     <Content Include="Images\tomato_splashed.png" />
     <Content Include="Images\tribuna.png" />
@@ -178,6 +182,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Play.cshtml" />
+    <Content Include="Views\Home\_GithubLogo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Play.ru-RU.resx">
