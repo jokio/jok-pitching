@@ -1,0 +1,169 @@
+﻿@{
+    Layout = null;
+}
+@using R = Resources.Play
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>Pitching - The Game</title>
+    <meta property="og:image" content="http://pitching.jok.io/Images/preview.png">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    @Styles.Render("~/Content/css")
+    <script>
+        var ML = {
+            A002: '@R.A002',
+            A003: '@R.A003',
+            A011: '@R.A011',
+            A012: '@Html.Raw(R.A012)',
+            A013: '@Html.Raw(R.A013)',
+        }
+        var RootUrl = '@System.Configuration.ConfigurationManager.AppSettings["SiteUrl"]';
+    </script>
+    @if (Request.Browser.IsMobileDevice)
+    {
+        <script src="~/Scripts/Cordova/3.4.0/cordova-wp8.js"></script>
+    }
+    <style>
+        #MoveLeft, #MoveRight {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.25);
+            position: absolute;
+            top: 95px;
+            z-index: 2000;
+        }
+
+        #MoveLeft {
+            left: 10px;
+        }
+
+        #MoveRight {
+            right: 10px;
+        }
+
+        @@-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <script>
+        $(function () {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                    document.createTextNode("@("@")-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        });
+    </script>
+</head>
+<body onload="onLoad()">
+    <div id="Root">
+        <div id="Game">
+            <div id="Container">
+            </div>
+            <div id="MoveLeft">
+
+            </div>
+            <div id="MoveRight">
+
+            </div>
+        </div>
+        <div id="Menu">
+            <div class="start">
+                <img src="@Url.ContentAbsUrl("~/Images/gamejam.png")" /><br /><br />
+                <div>
+                    <button data-mode="1" class="start_game btn btn-default btn-lg">@R.A001</button>
+                    <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
+                </div>
+                <div>
+                    <button class="top_speakers_btn btn btn-lg btn-danger" data-id="speakers" style="min-width: 220px;">@R.A008</button>
+                </div>
+                <div>
+                    <button class="top_juries_btn btn btn-lg btn-warning" data-id="juries" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
+                </div>
+            </div>
+            <div class="finish">
+                <div class="highscore">@R.A007 <span></span></div>
+                <div class="results">@R.A006 <span></span></div>
+                <div>
+                    <button data-mode="1" class="start_game btn btn-default btn-lg">@R.A001</button>
+                    <button id="PlayAgain" class="btn btn-default btn-lg">@R.A004</button>
+                    <button data-mode="2" class="start_game btn btn-default btn-lg">@R.A009</button>
+                </div>
+                <div>
+                    <button class="top_speakers_btn btn btn-lg btn-danger" data-id="speakers" style="min-width: 220px;">@R.A008</button>
+                </div>
+                <div>
+                    <button class="top_juries_btn btn btn-lg btn-warning" data-id="juries" style="min-width: 220px; margin-top: 10px;">@R.A010</button>
+                </div>
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/js")
+    </div>
+    <script>
+        function onLoad() {
+            document.addEventListener('deviceready', onDeviceReady, false);
+        }
+
+        function onDeviceReady() {
+            console.log('cordova ready!');
+            window.Media = window.Media;
+            window.alert = alert;
+            window.cordova = window.cordova || window.phonegap;
+            window.gamecenter = window.gamecenter;
+            window.IsWP8 = navigator.userAgent.match(/IEMobile\/10\.0/);
+            window.JM = {
+                accelerometer: navigator.accelerometer,
+
+                scrollToBottom: function () {
+                    $("html, body").animate({ scrollTop: $(document).height() }, 500);
+                },
+
+                playAudio: function (url) {
+                    try {
+                        window.cordova.exec(null, null, 'JokUtils', 'playAudio', [url]);
+                    }
+                    catch (err) { }
+                },
+
+                refreshPage: function () {
+
+                },
+
+                getHighscore: function () {
+                    var value = $.cookie('hightscore') || 0;
+
+                    return parseInt(value);
+                },
+
+                setHighscore: function (value) {
+
+                    $.cookie('hightscore', value, { expire: 100000 });
+                }
+            }
+        }
+
+        function RefreshLayoutScale() {
+            var xWidth1 = Math.max(window.outerHeight, window.outerWidth);
+            var xWidth2 = Math.max(window.innerHeight, window.innerWidth);
+            var xWidth3 = Math.max(screen.width, screen.height);
+
+            var xWidth = Math.min(xWidth1, xWidth2, xWidth3);
+
+            if (xWidth < 1000) {
+                var scale = xWidth / 1000;
+                document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale==' + scale + ', maximum-scale=' + scale + ', minimum-scale==' + scale + ', user-scalable=yes');
+            }
+        }
+
+        RefreshLayoutScale();
+    </script>
+    <script src="http://debug.jok.io/target/target-script-min.js#anonymous"></script>
+</body>
+</html>

@@ -28,6 +28,8 @@ var Game = {
         $(document).on('click', '#Container', this.UIFire);
         $(document).on('click', '.start_game', this.UIStartGame);
         $(document).on('click', '#PlayAgain', this.UIPlayAgain);
+        $(document).on('click', '#MoveLeft', this.UIMoveLeft);
+        $(document).on('click', '#MoveRight', this.UIMoveRight);
         $(document).on('click', '#Game .volume', this.UIToggleMusic);
         $(document).on('click', '#Menu .top_speakers_btn', this.UIShowLeaderboard);
         $(document).on('click', '#Menu .top_juries_btn', this.UIShowLeaderboard);
@@ -39,7 +41,7 @@ var Game = {
             }
         }, false);
 
-        if (window.JM) {
+        if (window.JM && !window.IsWP8) {
             function onSuccess(acceleration) {
 
                 if (Game.gameMode == 2) return;
@@ -178,6 +180,30 @@ var Game = {
                 x: left + 20,
             }).play();
         }
+    },
+
+    UIMoveLeft: function () {
+        var left = Game.userImg.getPosition().x;
+        if (left < 180)
+            return;
+
+        new Kinetic.Tween({
+            node: Game.userImg,
+            duration: 0.04,
+            x: left - 40,
+        }).play();
+    },
+
+    UIMoveRight: function () {
+        var left = Game.userImg.getPosition().x;
+        if (left > 800)
+            return;
+
+        new Kinetic.Tween({
+            node: Game.userImg,
+            duration: 0.04,
+            x: left + 40,
+        }).play();
     },
 
     UIFire: function (e) {

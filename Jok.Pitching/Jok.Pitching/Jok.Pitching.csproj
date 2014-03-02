@@ -160,6 +160,17 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Jok.Pitching.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Cordova\3.4.0\cordova-wp8.js" />
+    <Content Include="Scripts\Cordova\3.4.0\cordova_plugins.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\gamecenter\www\gamecenter.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.device-motion\www\Acceleration.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.device-motion\www\accelerometer.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.device\www\device.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.dialogs\www\notification.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.inappbrowser\www\InAppBrowser.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.media\www\Media.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.media\www\MediaError.js" />
+    <Content Include="Scripts\Cordova\3.4.0\plugins\org.apache.cordova.vibration\www\vibration.js" />
     <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\Game.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -185,6 +196,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Play.cshtml" />
     <Content Include="Views\Home\_GithubLogo.cshtml" />
+    <Content Include="Views\Home\Play2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Play.ru-RU.resx">

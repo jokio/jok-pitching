@@ -19,5 +19,12 @@ namespace Jok.Pitching.Controllers
 
             return View();
         }
+
+        public ActionResult Play2(string deviceid)
+        {
+            ViewBag.DeviceID = deviceid;
+
+            return View();
+        }
     }
 }
