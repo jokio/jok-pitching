@@ -153,4 +153,7 @@
   <data name="A012" xml:space="preserve">
     <value>← Rotate phone left or right →</value>
   </data>
+  <data name="A013" xml:space="preserve">
+    <value>← Press LEFT or RIGHT arrow buttons to miss tomatoes →</value>
+  </data>
 </root>

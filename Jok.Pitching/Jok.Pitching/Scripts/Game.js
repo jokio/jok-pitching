@@ -247,7 +247,7 @@ var Game = {
             fill: 'white',
             fontSize: 30,
             fontFamily: 'Arial',
-            text: ML.A012
+            text: (window.JM ? ML.A012 : ML.A013)
         });
 
         this.canvasLayer.add(this.hintText);
