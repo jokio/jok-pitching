@@ -28,7 +28,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     Background="Black"
-    SupportedOrientations="Landscape" Orientation="Portrait" d:DesignHeight="768" d:DesignWidth="480" 
+    SupportedOrientations="Landscape" Orientation="Landscape" d:DesignHeight="768" d:DesignWidth="480" 
     xmlns:my="clr-namespace:WPCordovaClassLib">
     <Grid x:Name="LayoutRoot" Background="Transparent" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
