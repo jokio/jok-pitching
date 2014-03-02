@@ -145,6 +145,7 @@
     <Content Include="Images\gamejam.png" />
     <Content Include="Images\gift-package.png" />
     <Content Include="Images\icon.png" />
+    <Content Include="Images\jokplay.png" />
     <Content Include="Images\preview.png" />
     <Content Include="Images\tomato.png" />
     <Content Include="Images\tomato_splashed.png" />
@@ -154,6 +155,7 @@
     <Content Include="Images\user_avatar_hp_3.png" />
     <Content Include="Images\user_avatar_hp_4.png" />
     <Content Include="Images\user_avatar_hp_5.png" />
+    <Content Include="Images\webplay.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Jok.Pitching.pubxml" />

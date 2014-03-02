@@ -67,6 +67,11 @@ var Game = {
             window.gamecenter.auth();
         }
 
+        if (!window.JM) {
+            $('.top_speakers_btn').remove();
+            $('.top_juries_btn').remove();
+        }
+
         //this.bgAudio = new Audio('/Audio/Lights.mp3');
         //this.bgAudio.volume = 40;
 
@@ -321,6 +326,8 @@ var Game = {
         if (this.isFinished) return;
 
 
+        var _this = this;
+
         if (this.gameMode == 1) {
             var highscore = this.saveHighScore(this.score, this.gameMode);
 
@@ -329,8 +336,13 @@ var Game = {
             $('#Menu .finish').show();
             $('#Menu .start').hide();
 
-            $('#Menu .finish button.start_game').show();
-            $('#Menu .finish button.start_game[data-mode=' + this.gameMode + ']').hide();
+            $('#Menu .finish button').hide();
+
+            setTimeout(function () {
+                $('#Menu .finish button').show();
+                $('#Menu .finish button.start_game').show();
+                $('#Menu .finish button.start_game[data-mode=' + _this.gameMode + ']').hide();
+            }, 1000);
 
             $('#Menu').show();
 
@@ -346,8 +358,14 @@ var Game = {
             $('#Menu .finish').show();
             $('#Menu .start').hide();
 
-            $('#Menu .finish button.start_game').show();
-            $('#Menu .finish button.start_game[data-mode=' + this.gameMode + ']').hide();
+
+            $('#Menu .finish button').hide();
+
+            setTimeout(function () {
+                $('#Menu .finish button').show();
+                $('#Menu .finish button.start_game').show();
+                $('#Menu .finish button.start_game[data-mode=' + _this.gameMode + ']').hide();
+            }, 1000);
 
             $('#Menu').show();
 
@@ -593,7 +611,7 @@ var Game = {
 
         new Kinetic.Tween({
             node: Game.userImg,
-            duration: 0.1,
+            duration: 0.3,
             x: left,
         }).play();
 

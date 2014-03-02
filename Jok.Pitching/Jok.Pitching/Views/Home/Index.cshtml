@@ -62,8 +62,12 @@
         top: 25px;
         right: 0px;
     }
+
     .root .downloads {
-        text-align:center;
+        text-align: center;
+    }
+
+    .root .downloads .disabled {
         opacity: .4;
     }
 </style>
@@ -87,8 +91,10 @@
     </div>
     <div class="info">
         <span class="title">Idea:</span><br />
-        There is a speaker on game jam and jury throws tomatoes.
+        Game "describes" pitching procedure on Game Jam event. There is speaker and juries.
+        Jury's goal is to throw tomatos and get Sniper points.
         Speaker's goal is to miss them all and get more Ninja points.
+
         Idea was born at first "Game Jam" event, in Tbilisi, Georgia.
     </div>
     <div class="info">
@@ -99,7 +105,8 @@
         </ul>
     </div>
     <div class="downloads">
-        <img src="~/Images/badge_appstore-lrg.png" />
+        <a href="@Url.Action("Play", "Home")"><img src="~/Images/webplay.png" /></a>
+        <img src="~/Images/badge_appstore-lrg.png" class="disabled" />
     </div>
     <img src="~/Images/preview.png" class="preview" />
     <div class="copyright">
