@@ -155,7 +155,8 @@
     <Content Include="Images\user_avatar_hp_4.png" />
     <Content Include="Images\user_avatar_hp_5.png" />
     <Content Include="Images\webplay.png" />
-    <Content Include="favicon.ico" />
+    <Content Include="icon.ico" />
+    <Content Include="favicon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Jok.Pitching.pubxml" />
