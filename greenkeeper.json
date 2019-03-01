@@ -1,0 +1,14 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Mobile/plugins/org.apache.cordova.device-motion/package.json",
+        "Mobile/plugins/org.apache.cordova.device/package.json",
+        "Mobile/plugins/org.apache.cordova.dialogs/package.json",
+        "Mobile/plugins/org.apache.cordova.inappbrowser/package.json",
+        "Mobile/plugins/org.apache.cordova.media/package.json",
+        "Mobile/plugins/org.apache.cordova.vibration/package.json"
+      ]
+    }
+  }
+}
